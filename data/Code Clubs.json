@@ -1,0 +1,11 @@
+{"nodes":[{"name":"Bingley Grammar School","group":1, "img": "img/bingley.png"},
+	{"name":"Computing Hub","group":1, "img": "img/teachcomp.png"},
+	{"name":"Raspberry Pi","group":2, "img": "img/rpi.png"},
+	{"name":"The Brilliant Club","group":2, "img": "img/bc.png"},
+  {"name":"Digital Makers","group":1, "img": "img/dmp.jpg"}],
+"links":[{"source":1,"target":0,"value":0.2},
+	{"source":1,"target":4,"value":0.05},
+	{"source":2,"target":4,"value":0.04},
+	{"source":3,"target":4,"value":0.04}
+
+]}

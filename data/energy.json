@@ -1,0 +1,33 @@
+{"nodes":[
+{"id":"0", "name":"Digital Divide"},       
+{"id":"1","name":"Programming Skills"},  
+{"id":"2","name":"Online Safety"},       
+{"id":"3","name":"Computational Thinking"},   
+{"id":"4","name":"Computational Literacy"}, 
+{"id":"5","name":"Impacts of Computing"},
+{"id":"6","name": "Arts & Culture"},
+{"id":"7","name": "Framework"},
+{"id":"8","name": "Sustainable intervention"}, 
+{"id":"9","name": "CSE"},
+{"id":"10","name": "Digital Strategy"},
+{"id":"11","name": "Digital Maturity"},
+{"id":"12","name": "Digital Creativity"}
+],
+"links":[
+{"source":0,"target":7,"value":120.729},
+{"source":0,"target":10,"value":80.729},
+{"source":7,"target":8,"value":120.729},
+{"source":10,"target":8,"value":80.729},
+{"source":1,"target":3,"value":60.862},
+{"source":1,"target":4,"value":60.322},
+{"source":1,"target":9,"value":100.322},
+{"source":3,"target":9,"value":60.322},
+{"source":4,"target":12,"value":60.322},
+{"source":2,"target":5,"value":60.322},
+{"source":5,"target":12,"value":100.322},
+{"source":8,"target":11,"value":200.322},
+{"source":9,"target":11,"value":160.322},
+{"source":2,"target":6,"value":50.322},
+{"source":6,"target":12,"value":50.322},
+{"source":12,"target":11,"value":215.322}
+]}

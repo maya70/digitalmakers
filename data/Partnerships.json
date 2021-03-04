@@ -1,0 +1,16 @@
+{"nodes":[{"name":"Bradford City Council","group":1, "img": "img/council.jpg"},
+	{"name":"WYCA","group":1, "img": "img/wyca.png"},
+	{"name":"Keighley Space Centre","group":2, "img": "img/black.png"},
+	{"name":"exa.foundation","group":2, "img": "img/exa.png"},
+  {"name":"Digital Makers","group":1, "img": "img/dmp.jpg"},
+    {"name":"CTE","group":1, "img": "img/cte.png"}
+],
+"links":[{"source":1,"target":0,"value":0.2},
+	{"source":1,"target":4,"value":0.05},
+	{"source":2,"target":4,"value":0.04},
+	{"source":3,"target":4,"value":0.04},
+	{"source":0,"target":4,"value":0.04},
+	{"source":5,"target":4,"value":0.04},
+	{"source":5,"target":0,"value":0.04}
+
+]}

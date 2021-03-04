@@ -1,0 +1,17 @@
+{"name":"Computer Science Education",
+	"children":[{"name":"Content Planning",
+				"children":[{"name":"Co-design", "size": 50},
+							{"name": "Management",
+		 					"children": [{"name":"Online Toolkit", "size": 12}, {"name":"Teacher Training", "size": 12} ]}
+		 				]
+			},
+		{"name":"Content Delivery",
+			"children":[{"name": "Code Clubs", "size":46}, 
+				        {"name":"Hackathons",
+						"children":[{"name":"Partnerships", "size": 25},
+									{"name":"Scientific Advice", "children":[{"name":"Ethnicity","size":10},
+											{"name":"Gender","size":10}, {"name":"Disability","size":10}]}
+									
+									]
+					}]}
+		]}

@@ -1,0 +1,14 @@
+{"nodes":[{"name":"Bradford Council","group":1, "img": "img/council.jpg"},
+	{"name":"BiB","group":1, "img": "img/bib.jpg"},
+	{"name":"ActEarly","group":1, "img": "img/actearly.png"},
+	{"name":"City of Reseach","group":1, "img": "img/cor.jpg"},
+	{"name":"CAER","group":1, "img": "img/caer.jpg"},
+  {"name":"Digital Makers","group":1, "img": "img/dmp.jpg"}],
+"links":[{"source":5,"target":0,"value":0.2},
+	{"source":5,"target":1,"value":0.05},
+	{"source":5,"target":5,"value":0.04},
+	{"source":3,"target":5,"value":0.04},
+	{"source":4,"target":5,"value":0.04},
+	{"source":2,"target":5,"value":0.04}
+
+]}

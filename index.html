@@ -1,0 +1,497 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Digital Makers</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<style>
+html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
+body{
+  overflow-x: scroll;
+}
+.w3-grey-item {
+    height:25px;
+    background-color: grey;
+}
+.myitem{
+    height: 24px;
+
+}
+.tab {
+    float: left;
+    border: 1px solid #ccc;
+    background-color: #f1f1f1;
+    width: 30%;
+    height: 300px;
+}
+
+/* Style the buttons that are used to open the tab content */
+.tab button {
+    display: block;
+    background-color: inherit;
+    color: black;
+    padding: 22px 16px;
+    width: 100%;
+    border: none;
+    outline: none;
+    text-align: left;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+/* Change background color of buttons on hover */
+.tab button:hover {
+    background-color: #ddd;
+}
+
+/* Create an active/current "tab button" class */
+.tab button.active {
+    background-color: #ccc;
+}
+
+/* Style the tab content */
+.tabcontent {
+    float: left;
+    padding: 0px 12px;
+    border: 1px solid #ccc;
+    width: 70%;
+    border-left: none;
+    height: 300px;
+    overflow-x: scroll;
+}
+div.tooltip { 
+    position: absolute;     
+    text-align: center;     
+    width: 60px;          
+    height: 28px;         
+    padding: 2px;       
+    font: 12px sans-serif;    
+    background: lightsteelblue; 
+    border: 0px;    
+    border-radius: 8px;     
+    pointer-events: none;     
+}
+
+.draggabledivcontainer{
+    position: absolute;
+    z-index: 11;
+    margin-top: 70px;
+    margin-left: 40px;
+    text-align: center;
+    border: 1px solid #d3d3d3;
+    min-height: 350px;
+    border-radius: 10px;
+    height: 90%; 
+    padding-bottom: 10px; 
+    width: 700px; 
+    background: darkgrey ; 
+    opacity: 0.9;
+    color: #fff;
+    overflow-x: scroll;
+    overflow-y: hidden;
+}
+.draggablediv {
+    position: absolute;
+    z-index: 9;
+    background-color: #f1f1f1;
+    text-align: center;
+    border: 1px solid #d3d3d3;
+    min-height: 500px;
+    display: grid;
+    grid-template-columns: 30% 70%;
+    grid-template-rows: 7% 93%;
+    grid-template-areas: "header header"
+                         "draw control";
+    height: 80%; 
+    padding-top: 10px;
+    padding-bottom: 10px; 
+    width: 1000px; 
+    margin-top: 30px; 
+    margin-right: 1%;
+    margin-left: 1%;
+    
+    }
+
+  .draggabledivheader {
+    grid-area: header;
+    border-radius: 10px;
+    padding: 10px;
+    cursor: move;
+    z-index: 10;
+    /* background: linear-gradient(to right, #63C3F3 , #63F3B9);*
+    background: #63F3B9;*/
+    background: darkgrey ; 
+    opacity: 0.8;
+    color: #fff;
+    height: 45px;
+    
+    }
+    .draw-area{
+      grid-area: draw;
+      justify-self: left;
+      height: 90%;
+      width: 100%;
+      min-width: 100%; 
+      margin-top: -10%;
+      margin-right: 0px;
+      padding-right: 0px;
+      z-index: 8; 
+     
+    }
+    .control-panel{
+      grid-area: control;
+      justify-self: right;
+      min-width: 30%;
+      height: 98%;
+      margin-top: 1%;
+      margin-bottom: 1%;
+      background-color: darkgrey;
+    }
+    #field-panel{
+      border-radius: 5px;
+      padding-left: 0px;
+      margin-left: 0px;
+      margin-top: 10px;
+      min-height: 100px;
+    }
+    .control-button{
+      border-radius: 5px;
+      width: 100%;
+      margin-top: 20px; 
+      margin-bottom: 10px;
+    
+      margin-right: 10px; 
+    }
+    #table-panel{
+      width: 100%;
+    }
+    .popover{
+      max-width: 1000px;
+      min-width: 500px;
+      min-height: 500px;
+      max-height: 1000px;
+    }
+  .mod_vis{
+    max-height: 400px;
+    max-width: 500px; 
+  }
+
+  #field-controls{
+   min-height: 100px;
+    background-color: lightgrey;
+    max-height: 80%;
+    width: 100%;
+    padding-top: 0px;
+    padding-left: 0px;
+    margin-top: 2px;
+    margin-right: 20px;
+    margin-left: 0px;
+    border-radius: 5px;
+  }
+ .required-entry {
+  margin-left: 0;
+  max-height: 80px;
+  margin-top: 0px;
+}
+.required-entry-label-1 {
+  display: inline-block;
+  padding-left: 10px;
+  width: 15%;
+  background-color:  rgba(0, 0, 255, .7);
+  font-weight: bold;
+  min-width: 65px;
+  margin-top: -50px;
+  margin-bottom: 40px;
+}
+select{
+-webkit-appearance: menulist;
+}
+#cls-select-1{
+  width: 25%;
+  margin-top: -10px;
+  height: 30px;
+  -webkit-appearance: menulist;
+}
+#cls-select-2{
+  width: 25%;
+  margin-top: -10px;
+  height: 30px;
+  -webkit-appearance: menulist;
+}
+.required-entry-label-2 {
+  display: inline-block;
+  padding-left: 10px;
+  width: 15%;
+  background-color:  rgba(255, 0, 0, .7);
+  font-weight: bold;
+  min-width: 65px;
+  margin-top: -30px;
+  margin-bottom: 40px;
+  margin-left: 60px;
+}
+@-webkit-keyframes spin {
+  0% { -webkit-transform: rotate(0deg); }
+  100% { -webkit-transform: rotate(360deg); }
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+body {
+  font-family: sans-serif, Arial;  
+  font-size: 12px;
+  font-weight: bold;
+}
+.links line {
+  stroke: #999;
+  stroke-opacity: 0.6;
+}
+
+.nodes circle {
+  stroke: #fff;
+  stroke-width: 1.5px;
+}
+
+path {
+  fill-opacity: .1;
+  stroke-opacity: 1;
+}
+
+#mainCanvas{
+  overflow-x: scroll;
+}
+
+</style>
+<link rel="stylesheet" type="text/css" href="css/style.css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<body class="w3-light-grey">
+
+
+      <!-- Content for Popover #1 -->    
+<div id="a1" class="hidden">
+    <div class="popover-heading">Thumbnail View</div>
+    
+    <div class="popover-body" id="cat-popover">
+    <!--button class="w3-button w3-black w3-xlarge" onclick="helloWorld()">Click ME</button-->
+     <input type="button" class="btn_vg_parse hide-vl" value="Add grouping" id="group0" onclick="addGroup(this.id)"></input>
+     <input type="button" class="btn_vg_parse hide-vl" value="Toggle view" id="toggle0" onclick="toggleBars(this.id)"></input>
+    </div>
+</div>   
+    
+ 
+<!-- Top container -->
+<div class="w3-bar w3-top w3-black w3-large" style="z-index:4">
+  <button class="w3-button w3-black w3-xlarge" onclick="w3_open()">☰</button>
+  <!--button class="w3-bar-item w3-button w3-hide-large w3-hover-none w3-hover-text-light-grey" onclick="w3_open();"><i class="fa fa-bars"></i>  Menu</button-->
+  <span class="w3-bar-item w3-right"> Digital Makers &copy </span>
+</div>
+
+<!-- Sidebar/menu -->
+<!--nav class="w3-sidebar w3-collapse w3-white w3-animate-left" style="z-index:3;width:240px;" id="mySidebar"><br-->
+<div class="w3-sidebar w3-bar-block w3-border-right" style="display:none" id="mySidebar">
+  <button onclick="w3_close()" class="w3-bar-item w3-large">Hide &times;</button>
+  <div class="w3-container w3-row">
+    <div class="w3-col s4">
+      
+    </div>
+    
+  </div>
+  <hr>
+  <div class="w3-container">
+   
+  </div>
+  <div class="w3-bar-block">
+    <a href="#" class="w3-bar-item w3-button w3-padding-16 w3-hide-large w3-dark-grey w3-hover-black" onclick="w3_close()" title="close menu"><i class="fa fa-remove fa-fw"></i>  Close Menu</a>
+    
+
+    <br><br>
+  </div>
+    
+</div> <!-- end of sidebar --> 
+
+<!--div class="w3-sidebar w3-bar-block w3-card w3-animate-right" style="right:0;" id="rightMenu">
+  <button onclick="closeRightMenu()" class="w3-bar-item w3-button w3-medium">Hide &times;</button>
+  <div class="w3-container">
+    <h4>Model Quality</h4>
+  </div>
+</div-->
+
+<!-- Overlay effect when opening sidebar on small screens -->
+<div class="w3-overlay w3-hide-large w3-animate-opacity" onclick="w3_close()" style="cursor:pointer" title="close side menu" id="myOverlay"></div>
+
+<!-- !PAGE CONTENT! -->
+<div id="main" class="w3-main" style="margin-left:0px;margin-top:43px;">
+
+ 
+ <div id="home" class="tab-pane fade in active">
+  <div class="w3-panel">
+    <div class="w3-row-padding" id= "mainCanvas" style="margin:0 -16px; min-height: 700px;">
+    <div class="draggabledivcontainer" id= "mainCardContainer">
+    <!--fieldset id="field-controls" style="max-width: 98%; margin-left: 1%; max-height: 85px; padding-top: 0px; ">
+      <form>
+       <div class= "form-group" style="margin-bottom: 10px; padding-top: 0px;">
+       <label for="sel-1" style="display: inline-block; max-width: 25%; color: white; background-color: red;"> Class 1: </label>
+       <select name="category" class="form-control" id="sel-1" style="display: inline-block;max-width: 25%; max-height: 30px;"> 
+       </select-->  
+        <!--label for="sel-2" style="color: white; background-color: blue; margin-left: 30px;"> Class 2: </label>
+        <select name="category" class="form-control" id="sel-2" style="display: inline-block;max-width: 25%; max-height: 30px; ">
+        </select-->
+       <!--input onClick="startClassifier()" type="button" id="selection-butt" value="Start" style="background-color: grey" disabled> </input>
+       </div>
+      </form>
+    </fieldset-->
+       <div class="draggablediv" id="mainCard">
+        <!--div class="control-panel" id="mainCardPanel"> 
+            <fieldset id="field-panel">
+            <legend style="color:black; font-size:10pt; margin-top: 0px;">Classifier Tools</legend>
+            <table id="table-panel">
+          
+           <tr>
+             <td> 
+               <button id="cat-button" class="control-button accordion">Categories</button>
+               <a href="#" class="btn btn-primary control-button" tabindex="0" data-toggle="popover" data-trigger="focus" data-placement="right" data-popover-content="#a1" data-placement="top">Trees</a>
+             </td>
+           </tr>
+           </table>
+           </fieldset>
+        </div-->     
+        <div id="draw-area-1" class="draw-area"> 
+            <!--svg id="mainsvg" style="min-height: 80%; min-width:333%;margin-top: -20%;"> </svg-->
+        </div>
+    </div>
+
+
+    </div>
+
+    </div>
+  </div>
+  
+ 
+  <hr>
+ 
+  <hr>
+
+ 
+  <hr>
+  <hr>
+
+  <br>
+  
+  <!-- Footer -->
+  <footer class="w3-container w3-padding-16 w3-light-grey">
+    <!--h4>FOOTER</h4-->
+    <!--p>Powered by <a href="https://www.w3schools.com/w3css/default.asp" target="_blank">w3.css</a></p-->
+  </footer>
+
+  <!-- End page content -->
+</div>
+
+<script>
+// Get the Sidebar
+var mySidebar = document.getElementById("mySidebar");
+
+// Get the DIV with overlay effect
+var overlayBg = document.getElementById("myOverlay");
+
+var cat_count = 0; 
+
+function startClassifier(){
+  $V.mainControl.startClassifier();
+}
+
+function addGroup(id){
+  var categoricals = ["Record Created By", "Patient District Number", "1.09 Patient admin status"];
+  $Q.mainControl.addCategorical(id, categoricals[cat_count]);
+  cat_count++; 
+}
+
+function toggleBars(displayId){
+  $Q.mainControl.toggleBars(displayId); 
+}
+//$(".draggablediv").resizable(); 
+
+$('body')
+  .on('mousedown', '.popover', function(e) {
+    console.log("clicked inside popover")
+    e.preventDefault()
+  });
+function w3_open() {
+  document.getElementById("main").style.marginLeft = "25%";
+  document.getElementById("mySidebar").style.width = "25%";
+  document.getElementById("mySidebar").style.display = "block";
+  document.getElementById("openNav").style.display = 'none';
+}
+function w3_close() {
+  document.getElementById("main").style.marginLeft = "0%";
+  document.getElementById("mySidebar").style.display = "none";
+  document.getElementById("openNav").style.display = "inline-block";
+}
+function openRightMenu() {
+    document.getElementById("rightMenu").style.display = "block";
+}
+function closeRightMenu() {
+    document.getElementById("rightMenu").style.display = "none";
+}
+
+function openCity(evt, cityName) {
+    // Declare all variables
+    var i, tabcontent, tablinks;
+
+    // Get all elements with class="tabcontent" and hide them
+    tabcontent = document.getElementsByClassName("tabcontent");
+    for (i = 0; i < tabcontent.length; i++) {
+        tabcontent[i].style.display = "none";
+    }
+
+    // Get all elements with class="tablinks" and remove the class "active"
+    tablinks = document.getElementsByClassName("tablinks");
+    for (i = 0; i < tablinks.length; i++) {
+        tablinks[i].className = tablinks[i].className.replace(" active", "");
+    }
+
+    // Show the current tab, and add an "active" class to the link that opened the tab
+    document.getElementById(cityName).style.display = "block";
+    evt.currentTarget.className += " active";
+}
+
+
+</script>
+
+
+
+<script src="https://d3js.org/d3.v4.min.js"></script>
+ <link href="https://fonts.googleapis.com/css?family=Diplomata" rel="stylesheet">
+<link href='https://fonts.googleapis.com/css?family=Average Sans' rel='stylesheet'>
+<script src="https://d3js.org/d3.v3.min.js"></script>
+<script>
+
+var drag = d3.drag();
+
+</script>
+<script type="text/javascript" src="js/util.js"></script>
+<script type="text/javascript" src="js/bundle.js"></script>
+<script type="text/javascript" src="js/model.js"></script>
+<script type="text/javascript" src="js/mainView.js"></script>
+<script type="text/javascript" src="js/control.js"></script>
+<script type="text/javascript" src="js/main.js"></script>
+<script type="text/javascript" src="js/force.js"></script>
+<script type="text/javascript" src="js/circles2.js"></script>
+
+<script type="text/javascript" src="js/forcedash.js"></script>
+
+<script type="text/javascript" src="js/sankey-ext.js"></script>
+<script type="text/javascript" src="js/sankey.js"></script>
+
+
+</body>
+</html>
